@@ -91,7 +91,6 @@ fifthBtn[0].addEventListener('click', function(){
             const fifthText = document.createTextNode(`The number ${userNum} is not even!`);
             fifthP.appendChild(fifthText);
             fifthDiv[0].appendChild(fifthP);
-            console.log('The number is not even!');
         }
         else{
             const fifthP = document.createElement('p');
@@ -105,4 +104,32 @@ fifthBtn[0].addEventListener('click', function(){
 });
 
 
+
+
+
+/* Напишите программу, которая проверяет, является ли значение, введенное пользователем, числом. */
+
+const sixthDiv = document.getElementsByClassName('sixthTask');
+const sixthBtn = document.getElementsByClassName('sixthTaskButton');
+
+sixthBtn[0].addEventListener('click', function(){
+    const userSecondNum = prompt('Type a number');
+
+    function number(){
+        if(userSecondNum === typeof(number)){
+            const sixthP = document.createElement('p');
+            const sixthText = document.createTextNode(`${userSecondNum} is a number!`);
+            sixthP.appendChild(sixthText);
+            sixthDiv[0].appendChild(sixthP);
+        }
+        else{
+            const sixthP = document.createElement('p');
+            const sixthText = document.createTextNode(`${userSecondNum} is not a number!`);
+            sixthP.appendChild(sixthText);
+            sixthDiv[0].appendChild(sixthP);
+        }
+    }
+    number();
+
+});
 
