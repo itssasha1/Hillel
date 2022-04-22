@@ -84,9 +84,9 @@ const fifthBtn = document.getElementsByClassName('fifthTaskButton');
 
 fifthBtn[0].addEventListener('click', function(){
     const userNum = prompt('Type a whole number');
-
+    
     function notEven(){
-        if(userNum % 2 != 0){
+        if(userNum % 2){
             const fifthP = document.createElement('p');
             const fifthText = document.createTextNode(`The number ${userNum} is not even!`);
             fifthP.appendChild(fifthText);
@@ -133,3 +133,57 @@ sixthBtn[0].addEventListener('click', function(){
 
 });
 
+
+
+
+
+/* Запишите в переменную случайное число (Math.random()), умножьте его на 100 и округлите. Получите второе число из окна prompt. Сравните и отобразите в модальном окне: первое число меньше второго или нет, а также оба значения. */
+
+const seventhDiv = document.getElementsByClassName('seventhTask');
+const seventhBtn = document.getElementsByClassName('seventhTaskButton');
+
+seventhBtn[0].addEventListener('click', function(){
+    const randomNum = Math.floor(Math.random() * 100);
+    const myNum = prompt('Type a number');
+
+    function number(){
+        if(myNum < randomNum){
+            const seventhP = document.createElement('p');
+            const seventhText = document.createTextNode(`${myNum} is less than ${randomNum}!`);
+            seventhP.appendChild(seventhText);
+            seventhDiv[0].appendChild(seventhP);
+        }
+        else if(myNum > randomNum){
+            const seventhP = document.createElement('p');
+            const seventhText = document.createTextNode(`${myNum} is bigger than ${randomNum}!`);
+            seventhP.appendChild(seventhText);
+            seventhDiv[0].appendChild(seventhP);
+        }
+        else {
+            const seventhP = document.createElement('p');
+            const seventhText = document.createTextNode(`${myNum} is equal to ${randomNum}!`);
+            seventhP.appendChild(seventhText);
+            seventhDiv[0].appendChild(seventhP);
+        }
+    }
+    number();
+
+});
+
+
+
+
+
+/* Создайте переменную str и запишите в нее из prompt такое предложение «Мне нравится изучать Front-end». Также создайте еще одну переменную и запишите в нее из prompt то, что вам нравится изучать. С помощью методов строки определите существует ли то что вам нравится изучать в исходной строке str. Также возьмите подстроку «Мне нравится изучать » из исходной переменной str сохраните ее в переменной. Создайте еще одну переменную result куда запишите результирующую строку объединяющую «Мне нравится изучать » и то что вам нравится изучать. Отобразите результат в модальном окне. */
+
+const eighthDiv = document.getElementsByClassName('eighthTask');
+const eighthBtn = document.getElementsByClassName('eighthTaskButton');
+
+eighthBtn[0].addEventListener('click', function(){
+    const str = prompt('What do you like to learn?', 'I like to learn Front-end');
+    const str1 = prompt('What else do you like to learn?');
+    const substring = str.includes('I like to learn');
+    const result = `${str} and ${str1}`;
+
+    alert(`${result}`);
+});
