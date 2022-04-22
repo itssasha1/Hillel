@@ -63,8 +63,8 @@ const fourthDiv = document.getElementsByClassName('fourthTask');
 const fourthBtn = document.getElementsByClassName('fourthTaskButton');
 
 fourthBtn[0].addEventListener('click', function(){
-    const workHour = prompt('How many working hours in a day you have?');
-    const workDays = prompt('How many working days a week you have?');
+    const workHour = prompt('How many working hours in a day do you have?');
+    const workDays = prompt('How many working days a week do you have?');
     const rate = prompt('How much money do you earn per working hour?');
     const salary = (workDays * 4 * workHour * rate);
     const fourthP = document.createElement('p');
@@ -114,9 +114,10 @@ const sixthBtn = document.getElementsByClassName('sixthTaskButton');
 
 sixthBtn[0].addEventListener('click', function(){
     const userSecondNum = prompt('Type a number');
+    const isNumber = !Number.isNaN(+userSecondNum);
 
     function number(){
-        if(userSecondNum === typeof(number)){
+        if(isNumber){
             const sixthP = document.createElement('p');
             const sixthText = document.createTextNode(`${userSecondNum} is a number!`);
             sixthP.appendChild(sixthText);
