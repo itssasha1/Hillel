@@ -8,6 +8,10 @@ let currentTask = 1;
 const moveToNextTask = () => {
     currentTask = currentTask + 1;
     func(currentTask);
+
+   /*  if (currentTask == 11) {
+        currentTask = 0;
+    } */
 }
 
 const moveToPrevTask = () => {
@@ -47,6 +51,27 @@ const func = (taskNum) => {
             break;
         case 9:
             runNinthTask();
+            break;
+        case 10:
+            runTenthTask();
+            break;
+        case 11:
+            runEleventhTask();
+            break;
+        case 12:
+            runTwelvthTask();
+            break;
+        case 13:
+            runThirteenthTask();
+            break;
+        case 14:
+            runFourteenthTask();
+            break;
+        case 15:
+            runFifteenthTask();
+            break;
+        case 16:
+            runSixteenthTask();
             break;
         default:
             runFirstTask();
@@ -263,10 +288,204 @@ const runNinthTask = () => {
     btn.addEventListener('click', function(){
         const userName = prompt('What`s your name?');
 
-        let greeting = (userName == undefined) ? createNewP('Hello John Doe!'):
+        let greet = (userName == undefined) ? createNewP('Hello John Doe!'):
         (userName == "") ? createNewP('Hello John Doe!'):
         createNewP(`Hello ${userName}!`);
     });
 }
+
+
+
+/* Создайте две переменные: greeting и lang. Переменная greeting – пустая строка. Переменная lang может принимать три значения: ‘ua’, 'en', 'de' (например, из prompt). Если она имеет значение ‘ua’, то в переменную greeting запишите приветствие на украинском, если имеет значение 'en' – то на английском, если 'de' – на немецком. Выведите на экран приветствие в зависимости от значения переменной lang. Решите задачу через if-else и через switch-case. */
+
+//if-else
+
+const runTenthTask = () => {
+
+    createDesc(`Создайте две переменные: greeting и lang. Переменная greeting – пустая строка. Переменная lang может принимать три значения: ‘ua’, 'en', 'de' (например, из prompt). Если она имеет значение ‘ua’, то в переменную greeting запишите приветствие на украинском, если имеет значение 'en' – то на английском, если 'de' – на немецком. Выведите на экран приветствие в зависимости от значения переменной lang. Решите задачу через if-else и через switch-case.`);
+
+    createDesc(`if-else`);
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Task 10 if-else';
+    task.appendChild(btn);
+
+    btn.addEventListener('click', function(){
+        let greeting = "";
+        let lang = prompt('Which language do you speak? ua, en, or de?');
+
+        if (lang == "ua"){
+            createNewP(greeting = "Доброго дня!");
+        }
+        else if (lang == "en"){
+            createNewP(greeting = "Hello!");
+        }
+        else if (lang == "de"){
+            createNewP(greeting = "Guten Tag!");
+        }
+        else {
+            createNewP(greeting = "Sorry, I don`t speak your language!");
+        }
+    });
+}
+
+//switch case
+
+const runEleventhTask = () => {
+
+    createDesc(`Создайте две переменные: greeting и lang. Переменная greeting – пустая строка. Переменная lang может принимать три значения: ‘ua’, 'en', 'de' (например, из prompt). Если она имеет значение ‘ua’, то в переменную greeting запишите приветствие на украинском, если имеет значение 'en' – то на английском, если 'de' – на немецком. Выведите на экран приветствие в зависимости от значения переменной lang. Решите задачу через if-else и через switch-case.`);
+
+    createDesc(`switch-case`);
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Task 10 switch-case';
+    task.appendChild(btn);
+
+    btn.addEventListener('click', function(){
+        let greeting = "";
+        let lang = prompt('Which language do you speak? ua, en, or de?');
+
+            switch(lang) {
+                case 'ua':
+                    createNewP(greeting = "Доброго дня!");
+                    break;
+                case 'en':
+                    createNewP(greeting = "Hello!");
+                    break;
+                case 'de':
+                    createNewP(greeting = "Guten Tag!");
+                    break;
+                default:
+                    createNewP(greeting = "Sorry, I don`t speak your language!");
+                    break;
+
+            }
+    });
+}
+
+
+
+
+//Циклы
+
+/* Сформируйте строку вида ".#.#.#.#.#." с помощью цикла for. */
+
+const runTwelvthTask = () => {
+
+    createDesc(`Сформируйте строку вида ".#.#.#.#.#." с помощью цикла for.`);
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Task 11';
+    task.appendChild(btn);
+
+    btn.addEventListener('click', function(){
+        let newString = '.';
+
+        for (let i = 0; newString.length < 11; i++) {
+            newString = newString + '#.';
+        }
+        createNewP(newString);
+    });
+}
+
+
+
+/* Используя любой цикл, напишите программу, которая в консоли выводит текстовое поздравление. Программа поздравляет того, чье имя определяется в переменной username:
+Happy birthday to you
+Happy birthday to you
+Happy birthday dear {{username}}
+Happy birthday to you */
+
+const runThirteenthTask = () => {
+
+    createDesc(`Используя любой цикл, напишите программу, которая в консоли выводит текстовое поздравление. Программа поздравляет того, чье имя определяется в переменной username:
+    Happy birthday to you
+    Happy birthday to you
+    Happy birthday dear {{username}}
+    Happy birthday to you`);
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Task 12';
+    task.appendChild(btn);
+
+    btn.addEventListener('click', function(){
+        const congratsUserName = prompt('What`s your name?');
+        const congrats = ['Happy birthday to you', 'Happy birthday to you', `Happy birthday dear ${congratsUserName}`, 'Happy birthday to you'];
+
+        for (let i = 0; i < congrats.length; i++) {
+            createNewP(congrats[i]);
+        }
+    });
+}
+
+
+
+/* Напишите цикл с confirm, который продолжается при нажатии на Отмена и прерывается при нажатии на Ok. */
+
+const runFourteenthTask = () => {
+
+    createDesc(`Напишите цикл с confirm, который продолжается при нажатии на Отмена и прерывается при нажатии на Ok.`);
+
+    
+    const btn = document.createElement('button');
+    btn.textContent = 'Task 13';
+    task.appendChild(btn);
+
+    btn.addEventListener('click', function(){
+        do {
+            var contLoop = confirm('Continue?');
+        } while(contLoop == false);
+    });
+}
+
+
+
+/* В окно prompt вводится число. Напишите цикл, в котором суммируются все нечетные числа до диапазона, введенного пользователем. Результат отобразите в окне alert. */
+
+const runFifteenthTask = () => {
+
+    createDesc(`В окно prompt вводится число. Напишите цикл, в котором суммируются все нечетные числа до диапазона, введенного пользователем. Результат отобразите в окне alert.`);
+
+    
+    const btn = document.createElement('button');
+    btn.textContent = 'Task 14';
+    task.appendChild(btn);
+
+    btn.addEventListener('click', function(){
+        const userN = prompt('Type a number!');
+        let allNums = [];
+
+        for (let i = 1; i <= userN; i++) {
+            (i % 2) && allNums.push(i);
+        }
+        const res = allNums.reduce((a,b) => a + b, 0);
+        createNewP(res);
+
+    });
+}
+
+
+
+/* Напишите бесконечный цикл, который прерывается при помощи команды break, когда Math.random() > 0.9. Выведите в окно alert случайное число, прервавшее цикл, и количество итераций цикла. */
+
+const runSixteenthTask = () => {
+
+    createDesc(`Напишите бесконечный цикл, который прерывается при помощи команды break, когда Math.random() > 0.9. Выведите в окно alert случайное число, прервавшее цикл, и количество итераций цикла.`);
+
+    
+    const btn = document.createElement('button');
+    btn.textContent = 'Task 15';
+    task.appendChild(btn);
+
+    btn.addEventListener('click', function(){
+
+        for(let i = 0; true; i++) if(Math.random() > 0.9) {
+                alert(++i);
+                break;
+            }     
+
+    });
+}
+
 
 func();
