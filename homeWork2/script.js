@@ -45,6 +45,9 @@ const func = (taskNum) => {
         case 8:
             runEighthTask();
             break;
+        case 9:
+            runNinthTask();
+            break;
         default:
             runFirstTask();
     }
@@ -242,6 +245,27 @@ const runEighthTask = () => {
 
         let numsNewXYResult = (numSecondX > 2 && numSecondX < 11 || numSecondY >= 6 && numSecondY < 14) ? createNewP(`${numSecondX * 2}`):
         createNewP(`${+numSecondX + 5}`);
+    });
+}
+
+
+
+/* Получите из prompt значение для имени пользователя. Выведите на экран приветствие. Учтите вариант, что пользователь может не ввести ничего или нажать на Отмена. */
+
+const runNinthTask = () => {
+
+    createDesc(`Получите из prompt значение для имени пользователя. Выведите на экран приветствие. Учтите вариант, что пользователь может не ввести ничего или нажать на Отмена.`);
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Task 9';
+    task.appendChild(btn);
+
+    btn.addEventListener('click', function(){
+        const userName = prompt('What`s your name?');
+
+        let greeting = (userName == undefined) ? createNewP('Hello John Doe!'):
+        (userName == "") ? createNewP('Hello John Doe!'):
+        createNewP(`Hello ${userName}!`);
     });
 }
 
