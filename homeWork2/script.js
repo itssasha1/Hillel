@@ -73,6 +73,18 @@ const func = (taskNum) => {
         case 16:
             runSixteenthTask();
             break;
+        case 17:
+            runSeventeenthTask();
+            break;
+        case 18:
+            runEighteenthTask();
+            break;
+        case 19:
+            runNineteenthTask();
+            break;
+        case 20:
+            runTwentiethTask();
+            break;
         default:
             runFirstTask();
     }
@@ -479,13 +491,157 @@ const runSixteenthTask = () => {
 
     btn.addEventListener('click', function(){
 
-        for(let i = 0; true; i++) if(Math.random() > 0.9) {
+        for(let i = 0; true; i++) if(Math.random() > 0.9){
                 alert(++i);
                 break;
-            }     
+            } 
+            
 
     });
 }
+
+
+
+/* Используя вложенные циклы, распечатайте в консоли значения таблицы умножения: 1х1=1, 1x2=2 ... 2x1=2, 2x2=4...  */
+
+const runSeventeenthTask = () => {
+
+    createDesc(`Используя вложенные циклы, распечатайте в консоли значения таблицы умножения: 1х1=1, 1x2=2 ... 2x1=2, 2x2=4...`);
+
+    
+    const btn = document.createElement('button');
+    btn.textContent = 'Task 16';
+    task.appendChild(btn);
+
+    btn.addEventListener('click', function(){
+
+        for (let i = 1; i < 11; i++){
+            for (let a = 1; a < 11; a++){
+                createNewP(i + 'x' + a + '=' + `${i * a}`);
+            }
+            
+        }
+    });
+}
+
+
+
+/* Запустите цикл, в котором пользователю предлагается вводить число с клавиатуры, до тех пор, пока не будет нажата Отмена. После выхода из цикла распечатайте количество введенных чисел, их общую сумму */
+
+const runEighteenthTask = () => {
+
+    createDesc(`Запустите цикл, в котором пользователю предлагается вводить число с клавиатуры, до тех пор, пока не будет нажата Отмена. После выхода из цикла распечатайте количество введенных чисел, их общую сумму`);
+
+    
+    const btn = document.createElement('button');
+    btn.textContent = 'Task 17';
+    task.appendChild(btn);
+
+    btn.addEventListener('click', function(){
+        let i = 0;
+        let sum = 0;
+        let userNumb;
+    
+        while ((userNumb = prompt("Введите число")) !== "0" && userNumb != null) {
+        ++i;
+        sum += +userNumb;
+        }
+        createNewP("Чисел введено: " + i + "\nСумма чисел: " + sum);
+    });
+}
+
+
+
+/* Напишите проверку пароля, введенного пользователем (заведомо определите пароль). Если введенный пароль правильный, то программа выдает сообщение “Вы успешно авторизованы”. Если пароль неправильный, программа снова выдает запрос пароля – до тех пор, пока пользователь не введет правильный пароль или не нажмет Отмена. В случае отмены авторизации, выдать окно подтверждения с текстом: “Вы уверены, что хотите отменить авторизацию?”. Если ответ утвердительный, тогда выдать сообщение “Вы отменили авторизацию”, если ответ отрицательный, тогда снова выдать запрос пароля */
+
+const runNineteenthTask = () => {
+
+    createDesc(`Напишите проверку пароля, введенного пользователем (заведомо определите пароль). Если введенный пароль правильный, то программа выдает сообщение “Вы успешно авторизованы”. Если пароль неправильный, программа снова выдает запрос пароля – до тех пор, пока пользователь не введет правильный пароль или не нажмет Отмена. В случае отмены авторизации, выдать окно подтверждения с текстом: “Вы уверены, что хотите отменить авторизацию?”. Если ответ утвердительный, тогда выдать сообщение “Вы отменили авторизацию”, если ответ отрицательный, тогда снова выдать запрос пароля`);
+
+    
+    const btn = document.createElement('button');
+    btn.textContent = 'Task 18';
+    task.appendChild(btn);
+
+    function confirmCancel() {
+        return confirm("Are you sure you want to cancel the authorization?");
+    }
+
+    btn.addEventListener('click', function(){
+
+        const pass = "123";
+        let putPass = prompt('Enter your password!');
+        let confirm = false;
+
+        if (putPass == pass){
+            alert('You are successfully logged in!');
+        }
+        else if (putPass != pass){
+            do {
+                putPass = prompt('Enter your password!');
+                if (!putPass) {
+                    confirm = confirmCancel();
+                    if (confirm) {
+                        break;
+                    }
+                }
+                console.log(confirm)
+            } while(putPass !== pass);
+            alert(confirm ? 'Authorization is canceled.' : 'You are successfully logged in!');
+        }
+        else {
+            let cancelConfirm = confirm('Are you sure you want to cancel the authorization?');
+        }
+    });
+}
+
+
+
+/* Напишите цикл от 1 до 50, в котором будет выводиться поочередно числа от 1 до 50, но есть условия:
+
+- если число делится на 3 без остатка, то выводить не это число, а слово «Fizz»;
+- если число делится на 5 без остатка, то выводить не это число, а слово «Buzz»;
+- если число делится и на 3 и на 5 без остатка, то выводить не это число, а слово «FizzBuzz»; 
+ */
+
+const runTwentiethTask = () => {
+
+    createDesc(`Напишите цикл от 1 до 50, в котором будет выводиться поочередно числа от 1 до 50, но есть условия:
+
+    - если число делится на 3 без остатка, то выводить не это число, а слово «Fizz»;
+    - если число делится на 5 без остатка, то выводить не это число, а слово «Buzz»;
+    - если число делится и на 3 и на 5 без остатка, то выводить не это число, а слово «FizzBuzz»;`);
+
+    
+    const btn = document.createElement('button');
+    btn.textContent = 'Task 19';
+    task.appendChild(btn);
+
+    function confirmCancel() {
+        return confirm("Are you sure you want to cancel the authorization?");
+    }
+
+    btn.addEventListener('click', function(){
+
+        let allNums = [];
+
+        for (let i = 1; i <= 50; i++) {
+            if (!(i % 3) && !(i % 5)){
+                createNewP(i + ' FizzBuzz');
+            }
+            else if (!(i % 3)){
+                createNewP(i + ' Fizz');
+            }
+            else if (!(i % 5)){
+                createNewP(i + ' Buzz');
+            }
+            else {
+                createNewP(i);
+            }
+        }
+    });
+}
+
 
 
 func();
