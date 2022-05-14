@@ -623,8 +623,6 @@ const runTwentiethTask = () => {
 
     btn.addEventListener('click', function(){
 
-        let allNums = [];
-
         for (let i = 1; i <= 50; i++) {
             if (!(i % 3) && !(i % 5)){
                 createNewP(i + ' FizzBuzz');
