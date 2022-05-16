@@ -7,7 +7,7 @@ let currentTask = 1;
 
 const moveToNextTask = () => {
     currentTask = currentTask + 1;
-    func(currentTask);
+    allTasks(currentTask);
 
    /*  if (currentTask == 11) {
         currentTask = 0;
@@ -16,13 +16,13 @@ const moveToNextTask = () => {
 
 const moveToPrevTask = () => {
     currentTask = currentTask - 1;
-    func(currentTask);
+    allTasks(currentTask);
 }
 
 prevBtn.addEventListener('click', moveToPrevTask);
 nextBtn.addEventListener('click', moveToNextTask);
 
-const func = (taskNum) => {
+const allTasks = (taskNum) => {
     task.innerHTML = '';
     switch(taskNum) {
         case 1:
@@ -570,28 +570,19 @@ const runNineteenthTask = () => {
     btn.addEventListener('click', function(){
 
         const pass = "123";
-        let putPass = prompt('Enter your password!');
+        let putPass = "";
         let confirm = false;
 
-        if (putPass == pass){
-            alert('You are successfully logged in!');
-        }
-        else if (putPass != pass){
-            do {
-                putPass = prompt('Enter your password!');
-                if (!putPass) {
-                    confirm = confirmCancel();
-                    if (confirm) {
-                        break;
-                    }
+        do {
+            putPass = prompt('Enter your password!');
+            if (!putPass) {
+                confirm = confirmCancel();
+                if (confirm) {
+                    break;
                 }
-                console.log(confirm)
-            } while(putPass !== pass);
-            alert(confirm ? 'Authorization is canceled.' : 'You are successfully logged in!');
-        }
-        else {
-            let cancelConfirm = confirm('Are you sure you want to cancel the authorization?');
-        }
+            }
+        } while(putPass !== pass);
+        alert(confirm ? 'Authorization is canceled.' : 'You are successfully logged in!');
     });
 }
 
@@ -642,4 +633,4 @@ const runTwentiethTask = () => {
 
 
 
-func();
+allTasks();
