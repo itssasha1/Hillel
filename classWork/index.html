@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Document</title>
 </head>
 <body>
@@ -20,12 +20,70 @@
         figure();
          */
         
-        let str = '';
+/*         let str = '';
         for (let i = 0; i < 10; i++) {
             for (let j = 1; j < i; j++) {
-            console.log(str + "#");
+            console.log(str + '#');
             };
-        }
+        } */
+
+        /* let myStr = 'string not starting with capital';
+        alert(myStr[0].toUpperCase() + myStr.substring(1)); */
+
+       /*  const myStr = 'abcd';
+        const mySecondStr = 'aBcD';
+
+        console.log(myStr.toUpperCase() === mySecondStr.toUpperCase()); */
+
+        /* const userString = prompt('Type numbers');
+        const arrFromUserString = Array.from(userString);
+        let result = [];
+
+        for (let i = 0; i < arrFromUserString.length; i++) {
+            if(i % 2){
+                result.push(`${i};`);
+            }else{
+                result.push(i);
+    }
+            }
+    alert(result.join('')); */
+
+/*     const firstArr = [2, 3, 1, 5, 7];
+    const secondArr = [3, 4, 1];
+    let res = [];
+
+    for(var i = 0; i < firstArr.length; i++){
+        res.push((firstArr[i] || 0) + (secondArr[i] || 0));
+    }
+
+    alert(res); */
+
+/*     function reverseStr (str){
+        return str.split('').reverse().join('');
+    }    
+    alert(reverseStr('258961')); */
+
+
+/* const string = 'level';
+
+function checkPalindrome(string) {
+    const arr = string.split('');
+    const reverseArr = arr.reverse();
+    const reverseString = reverseArr.join('');
+
+    if(string == reverseString) {
+        console.log('It is a palindrome');
+    }
+    else {
+    console.log('It is not a palindrome');
+    }
+}
+checkPalindrome(string); */
+
+let values = ['php', 'php', 'css', 'css', 'script', 'script', 'html', 'html', 'java'];
+let uniqueValues = [...new Set(values)];
+
+alert(uniqueValues);
 
     </script>
 </body>
