@@ -1,0 +1,11 @@
+// Напишите функцию, которая проверяет, является ли элемент именно простым объектом, а не массивом, null и т.п. 
+const obj = { name: "John",
+lastName: "Doe"};
+function isObj () {
+    if (typeof obj === 'object' && !Array.isArray(obj)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+alert(isObj());
